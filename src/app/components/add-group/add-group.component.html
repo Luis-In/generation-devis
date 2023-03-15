@@ -1,0 +1,19 @@
+<form
+  class="form"
+  [formGroup]="form"
+  (submit)="addGroup($event)"
+>
+  <label for="group-name">{{title}}</label>
+  <input
+    type="text"
+    name="group-name"
+    class="inpt"
+    formControlName="title"
+    placeholder="Nom du groupe"
+  >
+  <span>{{error}}</span>
+  <div class="form-btns">
+    <input type="submit" class="btn" value="Ajouter" name="submit">
+    <input type="button" class="btn" value="Annuler" (click)="toggle()">
+  </div>
+</form>

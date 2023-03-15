@@ -1,0 +1,61 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 1rem 2rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  gap: 1rem;
+  transform: translate(-50%, -50%);
+  transition: 200ms ease-in-out all;
+  .form-btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5rem;
+    input[value="Annuler"] {
+      background-color: gray;
+      &:hover {
+        background-color: #6d6d6d;
+      }
+    }
+  }
+  label, span {
+    text-align: center;
+  }
+  span {
+    color: red;
+  }
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .3rem 5rem;
+  border-radius: .5rem;
+  background-color: #4472C4;
+  color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.7);
+  outline: none;
+  cursor: pointer;
+  &:hover {
+    background-color: #2E5EB8;
+  }
+  &:active {
+    background-color: #2E5EB8;
+    box-shadow: 0px 0px 6px 0px inset rgba(0, 0, 0, 0.7);
+  }
+}
+.inpt {
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.3);
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: .2rem;
+  font-size: 1rem;
+  padding: .2rem .4rem;
+}
+

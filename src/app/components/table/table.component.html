@@ -1,0 +1,50 @@
+<div class="table" *ngIf="table?.length">
+  <div class="row">
+    <div class="cell">Désignation</div>
+    <div class="cell">Qté</div>
+    <div class="cell">Unité</div>
+    <div class="cell">PU</div>
+    <div class="cell">Total</div>
+  </div>
+  <app-group
+    class="group"
+    *ngFor="let group of table; index as i"
+    [group]="group"
+    [index]="i"
+    (onToggleMenu)="toggle('menu')"
+    (onUpdate)="update($event)"
+    (onToggleGroup)="toggle($event)"
+    (onDelete)="deleteGroup($event)"
+  ></app-group>
+  <div class="row total">
+    <span></span>
+    <div class="cell">Montant total brut H.T.</div>
+    <div class="cell">{{total.gross}} CHF</div>
+    <span></span>
+  </div>
+  <div class="row total">
+    <span></span>
+    <div class="cell">TVA 7.7%</div>
+    <div class="cell">{{total.tva}} CHF</div>
+    <span></span>
+  </div>
+  <div class="row total">
+    <span></span>
+    <div class="cell">Montant total net T.T.C. arrondi</div>
+    <div class="cell">{{total.net}} CHF</div>
+    <span></span>
+  </div>
+</div>
+<button class="btn add" (click)="toggle('Groupe de Chiffrage')">
+  + Groupe de chiffrage principal
+</button>
+<app-add-group
+  [title]="groupTitle"
+  [ngClass]="{active: tog}"
+  class="add-group"
+  (onToggle)="toggle($event)"
+  (onAddGroup)="addGroup($event)"
+></app-add-group>
+
+
+

@@ -1,0 +1,31 @@
+<div class="subGroup-row" *ngIf="subGroup">
+  <div
+    class="cell"
+    (dblclick)="collapse()">
+    <i [ngClass]="{coll: coll}">></i>
+    <input type="text" value={{subGroup.title}} (input)="updateSubGroup($event)">
+  </div>
+  <span></span>
+  <div class="cell total">{{subGroup.total}}</div>
+  <div class="cell btn">
+    <button (click)="toggle()">▽</button>
+  </div>
+  <app-menu
+    [ngClass]="{active: tog}"
+    [tog]="tog"
+    class="menu"
+    (onAddElement)="addSubElement()"
+    (OnDelete)="deleteSubGroup()"
+  ></app-menu>
+</div>
+<div [ngClass]="{collapse: coll}" *ngIf="subGroup?.elements">
+  <app-element
+    [subEl]="true"
+    *ngFor="let subElement of subGroup?.elements; index as i"
+    [element]="subElement"
+    [index]="i"
+    (onUpdElement)="updateSubElement($event)"
+    (onAddElement)="addSubElement()"
+    (onDeleteElement)="deleteSubElement($event)"
+  ></app-element>
+</div>

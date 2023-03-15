@@ -1,0 +1,39 @@
+.table {
+  display: grid;
+  width: 1000px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.8);
+  grid-auto-rows: auto;
+  position: relative;
+  .row {
+    display: grid;
+    grid-template-columns: 50% 1fr 1fr 1fr 15% 40px;
+    font-weight: bolder;
+    height: 40px;
+  }
+  .total {
+    grid-template-columns: 50% 1fr 15% 40px;
+    .cell {
+      border: none;
+      justify-content: flex-end;
+    }
+    .cell:nth-child(2) {
+      font-weight: normal;
+    }
+  }
+}
+.add {
+  padding: .5rem 1rem;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+}
+//
+.add-group {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: 200ms ease-in-out all;
+}

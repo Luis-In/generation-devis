@@ -1,0 +1,35 @@
+<div class="element" [ngClass]="{subEl: subEl}">
+  <div class="cell">
+    <input type="Text" name="name" value={{element.name}} (input)="updateElement($event)" placeholder="Ligne de Chiffrage">
+  </div>
+  <div class="cell">
+    <input type="number" name="quantity" min="0.00" (input)="updateElement($event)" value={{element.quantity}} placeholder="0">
+  </div>
+  <div class="cell">
+    <select title="units" name="units" value={{element.unit}} (change)="updateElement($event)">
+      <option value="m">m</option>
+      <option value="m2">m2</option>
+      <option value="m3">m3</option>
+      <option value="h">h</option>
+      <option value="forfait">forfait</option>
+      <option value="pce">pce</option>
+      </select>
+  </div>
+  <div class="cell">
+    <input type="number" name="priceUnit" min="0.00" value={{element.priceUnit}} (input)="updateElement($event)" placeholder="0">
+  </div>
+  <div class="cell total">
+    {{element.total}}
+  </div>
+  <div class="cell btn">
+    <button (click)="toggleMenu()">▽</button>
+  </div>
+  <app-menu
+    [ngClass]="{active: tog}"
+    class="menu"
+    [tog]="tog"
+    (onAddElement)="addElement()"
+    (OnDelete)="deleteElement()"
+  ></app-menu>
+</div>
+
